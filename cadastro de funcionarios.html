@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Funcionários</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+     
+     <style>
+      body {
+        background: #DDD;
+        margin: 0;
+      }
+    </style>
+    
+     <body>
+    <header>
+        <h1>TechPrime G.F</h1>
+        <nav>
+            <nav>
+            <ul>
+                <li><a href="inicio.html">Início</a></li>
+            </ul>
+        </nav>
+        </nav>
+    </header>
+   
+</body>
+    
+</head>
+    
+<style>
+    /* Estilos CSS */
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .form-group input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+    }
+    .form-group button {
+      padding: 5px 10px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .search-results {
+      margin-top: 20px;
+    }
+  </style>
+<body>
+  <div class="container">
+    <h1></h1>
+    <div class="form-group">
+      <label for="search">Digite o nome do Funcionário:</label>
+      <input type="text" id="search" placeholder="Digite o nome do Funcionário">
+    </div>
+    <div class="form-group">
+      <button onclick="searchCustomer()">Buscar</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <script>
+   
+   
+    function searchCustomer() {
+      const searchInput = document.getElementById("search");
+      const searchResults = document.getElementById("searchResults");
+
+      // Limpa os resultados anteriores
+      searchResults.innerHTML = "";
+
+      // Obtém o valor digitado no campo de busca
+      const searchTerm = searchInput.value.toLowerCase();
+
+      // Filtra os clientes cujo nome contenha o termo de busca
+      const filteredCustomers = customers.filter(customer =>
+        customer.name.toLowerCase().includes(searchTerm)
+      );
+
+      // Exibe os resultados da busca
+      if (filteredCustomers.length > 0) {
+        filteredCustomers.forEach(customer => {
+          const resultItem = document.createElement("div");
+          resultItem.textContent = `${customer.name} - ${customer.email}`;
+          searchResults.appendChild(resultItem);
+        });
+      } else {
+        const noResultsMessage = document.createElement("div");
+        noResultsMessage.textContent = "Nenhum cliente encontrado.";
+        searchResults.appendChild(noResultsMessage);
+      }
+    }
+  </script>
+</body>    
+    
+<body>
+    <h1>Cadastro de Funcionários</h1>
+
+    <form id="formulario">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required>
+
+        <label for="porcentagem">Porcentagem de Vendas:</label>
+        <input type="number" id="porcentagem" required>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
